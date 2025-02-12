@@ -275,15 +275,6 @@ window.theme.fn = {
 	/*
 	Local Environment Warning
 	*/
-	try {
-		if ("file://" === location.origin) {
-			if ($('[data-icon]').length || $('iframe').length) {
-
-				theme.fn.showErrorMessage('Local Environment Warning', 'SVG Objects, Icons, YouTube and Vimeo Videos might not show correctly on local environment. For better result, please preview on a server.');
-
-			}
-		}
-	} catch (e) {}
 
 	/*
 	Browser Selector
