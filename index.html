@@ -42,11 +42,11 @@
 	<link rel="stylesheet" href="css/demos/demo-business-consulting-3.css">
 
 	<!-- Demo CSS -->
-	<link rel="stylesheet" href="css/demos/index.css">
-	<link id="skinCSS" rel="stylesheet" href="css/skins/skin-seo.css">
+	
+	
 
 	<!-- Skin CSS -->
-	<!-- <link id="skinCSS" rel="stylesheet" href="css/skins/skin-business-consulting-3.css"> -->
+	<link id="skinCSS" rel="stylesheet" href="css/skins/skin-business-consulting-3.css">
 
 	<!-- Theme Custom CSS -->
 	<link rel="stylesheet" href="css/custom.css">
@@ -130,8 +130,7 @@
 							<div class="header-row">
 								<div class="header-logo">
 									<a href="#">
-										<img alt="Porto" width="162" height="33"
-											src="img/demos/business-consulting-3/logo.png">
+										<img alt="Adroit Consultancy" width="173" height="64" src="img/logo.png">
 									</a>
 								</div>
 							</div>
@@ -815,11 +814,8 @@
 				<div class="row pt-3 mt-5">
 					<div class="col-lg-3 mb-4 mb-lg-0">
 						<a href="demo-business-consulting-3.html" class="text-decoration-none">
-							<img src="img/demos/business-consulting-3/logo-footer.png" class="img-fluid mb-4"
-								width="123" height="33" alt="" />
+							<img src="img/logo-footer.png" class="img-fluid mb-4" alt="footer-logo" />
 						</a>
-						<p class="text-3-5">Cras a elit sit amet leo accumsan volutpat. Suspendisse hendreriast ehicula
-							leo, vel efficitur fel. </p>
 						<ul
 							class="social-icons social-icons-clean social-icons-clean-with-border social-icons-medium social-icons-icon-light">
 							<li class="social-icons-facebook"><a href="http://www.facebook.com/" target="_blank"
@@ -919,64 +915,8 @@
 	<!-- Theme Initialization Files -->
 	<script src="js/theme.init.js"></script>
 
-	<!-- Google Maps -->
-	<script>
-
-		/* 
-		Map Markers:
-		- Get an API Key: https://developers.google.com/maps/documentation/javascript/get-api-key
-		- Generate Map Id: https://console.cloud.google.com/google/maps-apis/studio/maps
-		- Use https://www.latlong.net/convert-address-to-lat-long.html to get Latitude and Longitude of a specific address
-		*/
-		(g => { var h, a, k, p = "The Google Maps JavaScript API", c = "google", l = "importLibrary", q = "__ib__", m = document, b = window; b = b[c] || (b[c] = {}); var d = b.maps || (b.maps = {}), r = new Set, e = new URLSearchParams, u = () => h || (h = new Promise(async (f, n) => { await (a = m.createElement("script")); e.set("libraries", [...r] + ""); for (k in g) e.set(k.replace(/[A-Z]/g, t => "_" + t[0].toLowerCase()), g[k]); e.set("callback", c + ".maps." + q); a.src = `https://maps.${c}apis.com/maps/api/js?` + e; d[q] = f; a.onerror = () => h = n(Error(p + " could not load.")); a.nonce = m.querySelector("script[nonce]")?.nonce || ""; m.head.append(a) })); d[l] ? console.warn(p + " only loads once. Ignoring:", g) : d[l] = (f, ...n) => r.add(f) && u().then(() => d[l](f, ...n)) })
-			({ key: "YOUR_API_KEY", v: "weekly" });
-
-		async function initMap() {
-			const { Map, InfoWindow } = await google.maps.importLibrary("maps");
-			const { AdvancedMarkerElement, PinElement } = await google.maps.importLibrary(
-				"marker",
-			);
-			const map = new Map(document.getElementById("googlemaps"), {
-				zoom: 14,
-				center: { lat: -37.817240, lng: 144.955820 },
-				mapId: "YOUR_MAP_API_ID",
-			});
-			const markers = [
-				{
-					position: { lat: -37.817240, lng: 144.955820 },
-					title: "Office 1<br>Melbourne, 121 King St, Australia<br>Phone: 123-456-1234",
-				}
-			];
-
-			const infoWindow = new InfoWindow();
-
-			markers.forEach(({ position, title }, i) => {
-				const pin = new PinElement({
-					background: "#e36159",
-					borderColor: "#e36159",
-					glyphColor: "#FFF",
-				});
-				const marker = new AdvancedMarkerElement({
-					position,
-					map,
-					title: `${title}`,
-					content: pin.element,
-				});
-
-				marker.addListener("click", ({ domEvent, latLng }) => {
-					const { target } = domEvent;
-
-					infoWindow.close();
-					infoWindow.setContent(marker.title);
-					infoWindow.open(marker.map, marker);
-				});
-			});
-
-		}
-
-		initMap();
-
-	</script>
+	
+	
 </body>
 
 </html>
