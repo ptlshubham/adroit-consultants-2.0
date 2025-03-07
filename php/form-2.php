@@ -14,6 +14,11 @@ require 'php-mailer/src/Exception.php';
 
 $mail = new PHPMailer();
 
+// $servername = "localhost";
+// $username = "root";
+// $password = "";
+// $database = "u768511311_arise";
+
 // SMTP configuration for Hostinger
 $mail->isSMTP();
 $mail->Host       = 'smtp.hostinger.com';
@@ -107,7 +112,7 @@ $mail->Body = $mail_body;
 if ($mail->send()) {
     echo '<!DOCTYPE html><html><head><meta charset="UTF-8"></head><body>';
     echo '<script language="javascript">
-        
+      
         window.location.href = "https://test.adroitconsultants.in/";
     </script>';
     echo '</body></html>';
