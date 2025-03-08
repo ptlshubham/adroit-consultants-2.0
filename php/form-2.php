@@ -48,7 +48,7 @@ if (!$conn) {
     die("Connection failed: " . mysqli_connect_error());
 }
 
-$sql = "INSERT INTO `contact1` (`name`, `number`, `email`) VALUES ('$form_name', '$contact_phone', '$contact_email')";
+$sql = "INSERT INTO `contact` (`name`, `number`, `email`) VALUES ('$form_name', '$contact_phone', '$contact_email')";
 mysqli_query($conn, $sql);
 mysqli_close($conn);
 
