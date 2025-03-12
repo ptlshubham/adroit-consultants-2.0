@@ -18,7 +18,7 @@ $mail = new PHPMailer();
 $mail->isSMTP();                                            // Send using SMTP
 $mail->Host       = 'smtp.hostinger.com';                    // Set the SMTP server to send through
 $mail->SMTPAuth   = true;                                   // Enable SMTP authentication
-$mail->Username   = 'enquiry@adroitconsultants.in';       // SMTP username
+$mail->Username   = 'info@adroitconsultants.in';       // SMTP username
 $mail->Password   = "Adminadroite@2210";                           // SMTP password
 $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;         // Enable TLS encryption; `PHPMailer::ENCRYPTION_SMTPS` encouraged
 $mail->Port       = 465;                                    // TCP port to connect to, use 465 for `PHPMailer::ENCRYPTION_SMTPS` above
@@ -29,9 +29,9 @@ $contact_phone = $_REQUEST['number'];
 $contact_message = $_REQUEST['message'];
 
 //Recipients
-$mail->setFrom('enquiry@adroitconsultants.in', 'Contact Us');
+$mail->setFrom('info@adroitconsultants.in', 'Contact Us');
 $mail->addAddress($contact_email, $form_name); 
-$mail->addAddress('enquiry@adroitconsultants.in', 'Contact Us'); 
+$mail->addAddress('info@adroitconsultants.in', 'Contact Us'); 
 
 $servername = "localhost";
 $username = "root";

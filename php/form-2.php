@@ -23,7 +23,7 @@ $mail = new PHPMailer();
 $mail->isSMTP();
 $mail->Host       = 'smtp.hostinger.com';
 $mail->SMTPAuth   = true;
-$mail->Username   = 'enquiry@adroitconsultants.in';
+$mail->Username   = 'info@adroitconsultants.in';
 $mail->Password   = "Adminadroite@2210";
 $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
 $mail->Port       = 465;
@@ -33,9 +33,9 @@ $contact_email = $_REQUEST['email'];
 $contact_phone = $_REQUEST['number'];
 
 // Recipients
-$mail->setFrom('enquiry@adroitconsultants.in', 'Contact Us');
+$mail->setFrom('info@adroitconsultants.in', 'Contact Us');
 $mail->addAddress($contact_email, $form_name);
-$mail->addAddress('enquiry@adroitconsultants.in', 'Contact Us');
+$mail->addAddress('info@adroitconsultants.in', 'Contact Us');
 
 $servername = "localhost";
 $username = "root";
