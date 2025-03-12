@@ -24,7 +24,7 @@ $mail->isSMTP();
 $mail->Host       = 'smtp.hostinger.com';
 $mail->SMTPAuth   = true;
 $mail->Username   = 'info@adroitconsultants.in';
-$mail->Password   = "Adminadroite@2210";
+$mail->Password   = "Adroite@2210";
 $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
 $mail->Port       = 465;
 
