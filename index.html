@@ -1053,8 +1053,96 @@
 		</div>
 	</footer>
 	</div>
+	<!-- Contact Us Modal -->
+	<!-- Contact Us Modal -->
+	<div class="modal fade" id="contactUsModal" tabindex="-1" aria-labelledby="contactUsModalLabel" aria-hidden="true">
+		<div class="modal-dialog modal-lg modal-dialog-centered"> <!-- modal-lg for larger size -->
+			<div class="modal-content bg-dark"> <!-- Keeping your bg-dark class -->
+				<div class="modal-header border-0">
+					<h2 class="text-color-light  font-weight-medium mb-0" id="contactUsModalLabel">
+						Get in Touch with Us Today!
+					</h2>
+					<button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
+						aria-label="Close"></button>
+				</div>
+				<div class="modal-body p-5 text-center text-md-start"> <!-- Keeping your padding and alignment -->
+					<p class="text-3-5 font-weight-medium mb-4 text-color-light"> <!-- Added text-color-light -->
+						Have questions or need assistance? Reach out to us! Our team is here to help.
+					</p>
+					<form class="contact-form form-style-4 form-placeholders-light form-errors-light mb-5 mb-lg-0"
+						action="php/contact-form.php" method="POST">
+						<div class="contact-form-success alert alert-success d-none mt-4">
+							<strong>Success!</strong> Your message has been sent to us.
+						</div>
 
+						<div class="contact-form-error alert alert-danger d-none mt-4">
+							<strong>Error!</strong> There was an error sending your message.
+							<span class="mail-error-message text-1 d-block"></span>
+						</div>
+
+						<div class="row">
+							<div class="form-group col">
+								<input type="text" value="" data-msg-required="Please enter your name." maxlength="100"
+									class="form-control text-3 custom-border-color-grey-1 h-auto py-2" name="name"
+									id="name" placeholder="* Full Name" required>
+							</div>
+						</div>
+						<div class="row">
+							<div class="form-group col">
+								<input type="email" value="" data-msg-required="Please enter your email address."
+									data-msg-email="Please enter a valid email address." maxlength="100"
+									class="form-control text-3 custom-border-color-grey-1 h-auto py-2" name="email"
+									id="email" placeholder="* Email Address" required>
+							</div>
+						</div>
+						<div class="row">
+							<div class="form-group col">
+								<input type="text" value="" data-msg-required="Please enter your contact"
+									maxlength="100" class="form-control text-3 custom-border-color-grey-1 h-auto py-2"
+									name="number" id="number" placeholder="* Contact" required>
+							</div>
+						</div>
+						<div class="row mb-4">
+							<div class="form-group col">
+								<textarea maxlength="5000" data-msg-required="Please enter your message." rows="8"
+									class="form-control text-3 custom-border-color-grey-1 h-auto py-2" name="message"
+									id="message" placeholder="* Message" required></textarea>
+							</div>
+						</div>
+						<div class="row">
+							<div class="form-group col">
+								<button type="submit"
+									class="btn btn-primary custom-btn-style-1 font-weight-semibold btn-px-4 btn-py-2 text-3-5"
+									data-loading-text="Loading..." data-cursor-effect-hover="plus"
+									data-cursor-effect-hover-color="light">
+									<span>Send Message</span>
+								</button>
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
 	<!-- Vendor -->
+	<script>
+		// Show modal when page loads
+		document.addEventListener('DOMContentLoaded', function () {
+			var contactModal = new bootstrap.Modal(document.getElementById('contactUsModal'), {
+				keyboard: false
+			});
+			contactModal.show();
+		});
+
+		// Optional: Handle form submission
+		document.getElementById('contactForm').addEventListener('submit', function (e) {
+			e.preventDefault();
+			// Add your form submission logic here
+			console.log('Form submitted');
+			// Optionally close the modal after submission
+			bootstrap.Modal.getInstance(document.getElementById('contactUsModal')).hide();
+		});
+	</script>
 	<script src="vendor/plugins/js/plugins.min.js"></script>
 
 	<!-- Theme Base, Components and Settings -->

@@ -1,0 +1,32 @@
+#contactUsModal .modal-content {
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.2);
+}
+
+#contactUsModal .modal-header {
+    background-color: #0064a1;
+    color: white;
+}
+
+#contactUsModal .btn-primary {
+    background-color: #0064a1;
+    border-color: #0064a1;
+}
+/* Style for error messages in the form */
+.contact-form .form-control.error + .error,
+.contact-form .form-control.error ~ .error,
+.contact-form .form-control:invalid + .error,
+.contact-form .form-control:invalid ~ .error {
+    color: red !important;
+}
+
+/* Ensure the error message is visible when the field is invalid */
+.contact-form .form-control.error {
+    border-color: red !important;
+}
+
+/* Specific targeting for the contact field error message */
+#number.error + .error,
+#number:invalid + .error {
+    color: red !important;
+}
