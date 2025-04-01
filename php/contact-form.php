@@ -19,7 +19,7 @@ $mail->isSMTP();                                            // Send using SMTP
 $mail->Host       = 'smtp.hostinger.com';                    // Set the SMTP server to send through
 $mail->SMTPAuth   = true;                                   // Enable SMTP authentication
 $mail->Username   = 'info@adroitconsultants.in';       // SMTP username
-$mail->Password   = "Adroite@2210";                           // SMTP password
+$mail->Password   = "Adroit@2210";                           // SMTP password
 $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;         // Enable TLS encryption; `PHPMailer::ENCRYPTION_SMTPS` encouraged
 $mail->Port       = 465;                                    // TCP port to connect to, use 465 for `PHPMailer::ENCRYPTION_SMTPS` above
 
@@ -52,7 +52,7 @@ if (!$conn) {
   echo "data successfully recorded";
 }
 
- $sql = "INSERT INTO `contact1` (`name`, `email` , `number`, `message`) VALUES
+ $sql = "INSERT INTO `contact` (`name`, `email` , `number`, `message`) VALUES
  ('$form_name', '$contact_email', '$contact_phone', '$contact_message');";
  if (mysqli_query($conn, $sql)) {
        echo "New record created successfully";
