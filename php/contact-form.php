@@ -33,15 +33,15 @@ $mail->setFrom('info@adroitconsultants.in', 'Contact Us');
 $mail->addAddress($contact_email, $form_name); 
 $mail->addAddress('info@adroitconsultants.in', 'Contact Us'); 
 
-$servername = "localhost";
-$username = "root";
-$password = "";
-$database = "adroit";
+// $servername = "localhost";
+// $username = "root";
+// $password = "";
+// $database = "adroit";
 
-//  $servername = "127.0.0.1:3306";
-//  $username = "u768511311_adroit";
-//  $password = "Adroit@2210";
-//  $database = "u768511311_arise";
+ $servername = "127.0.0.1:3306";
+ $username = "u768511311_adroit";
+ $password = "Adroit@2210";
+ $database = "u768511311_adroit";
 
 // Create connection
 $conn = mysqli_connect($servername, $username, $password, $database);
@@ -107,7 +107,7 @@ $mail_body.= '<!DOCTYPE html>
                 <div class="info-item"><strong>Message:</strong> ' . $contact_message . '</div>
             </div>
             <p style="color: #666;">We appreciate your patience and look forward to assisting you!</p>
-            <a href="https://test.adroitconsultants.in/" class="btn">Visit Our Website</a>
+            <a href="https://adroitconsultants.in/" class="btn">Visit Our Website</a>
         </div>
         <div class="footer">
             <p>© ' . date('Y') . ' Adroit Consultants. All Rights Reserved.</p>
@@ -123,7 +123,7 @@ if ($mail->send()) {
     echo '<!DOCTYPE html><html><head><meta charset="UTF-8"></head><body>';
     echo '<script language="javascript">
       
-        window.location.href = "https://test.adroitconsultants.in/";
+        window.location.href = "https://adroitconsultants.in/";
     </script>';
     echo '</body></html>';
     exit();
@@ -131,7 +131,7 @@ if ($mail->send()) {
     echo '<!DOCTYPE html><html><head><meta charset="UTF-8"></head><body>';
     echo '<script language="javascript">
        
-        window.location.href = "https://test.adroitconsultants.in/";
+        window.location.href = "https://adroitconsultants.in/";
     </script>';
     echo '</body></html>';
     exit();
