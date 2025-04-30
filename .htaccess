@@ -1,0 +1,3 @@
+<!-- RewriteEngine On
+RewriteCond %{HTTP_HOST} ^(www\.)?adroitconsultants\.in$ [NC]
+RewriteRule ^(.*)$ https://adroitbiz.com/$1 [L,R=301] -->
