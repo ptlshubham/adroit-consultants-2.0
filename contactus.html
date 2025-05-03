@@ -410,64 +410,59 @@
                         <div class="col-lg-6 px-0">
                             <div class="bg-dark h-100">
                                 <div class="text-center text-md-start p-5 h-100 appear-animation"
-                                    data-appear-animation="fadeInUpShorter" data-appear-animation-delay="750">
+                                    data-appear-animation="fadeInUpShorter" data-appear-animation-delay="750寻
+                                    data-appear-animation-delay=" 500">
                                     <h2 class="text-color-light font-weight-medium mb-4 mt-5 mt-lg-0">Get in Touch with
                                         Us Today!</h2>
                                     <p class="text-3-5 font-weight-medium mb-4">Have questions or need assistance? Reach
                                         out to us! Our team is here to help.
                                     </p>
-                                    <form
-                                        class="contact-form form-style-4 form-placeholders-light form-errors-light mb-5 mb-lg-0"
-                                        action="php/contact-form.php" method="POST">
+                                    <form id="contactForm" action="php/contact-form.php" method="POST">
                                         <div class="contact-form-success alert alert-success d-none mt-4">
                                             <strong>Success!</strong> Your message has been sent to us.
                                         </div>
-
                                         <div class="contact-form-error alert alert-danger d-none mt-4">
                                             <strong>Error!</strong> There was an error sending your message.
                                             <span class="mail-error-message text-1 d-block"></span>
                                         </div>
-
                                         <div class="row">
                                             <div class="form-group col">
-                                                <input type="text" value="" data-msg-required="Please enter your name."
-                                                    maxlength="100"
+                                                <input type="text" name="name" id="name"
                                                     class="form-control text-3 custom-border-color-grey-1 h-auto py-2"
-                                                    name="name" id="name" placeholder="* Full Name" required>
+                                                    placeholder="* Full Name" required>
                                             </div>
                                         </div>
                                         <div class="row">
                                             <div class="form-group col">
-                                                <input type="email" value=""
-                                                    data-msg-required="Please enter your email address."
-                                                    data-msg-email="Please enter a valid email address." maxlength="100"
+                                                <input type="email" name="email" id="email"
                                                     class="form-control text-3 custom-border-color-grey-1 h-auto py-2"
-                                                    name="email" id="email" placeholder="* Email Address" required>
+                                                    placeholder="* Email Address" required>
                                             </div>
                                         </div>
                                         <div class="row">
                                             <div class="form-group col">
-                                                <input type="text" value=""
-                                                    data-msg-required="Please enter your contact" maxlength="100"
+                                                <input type="text" name="number" id="number"
                                                     class="form-control text-3 custom-border-color-grey-1 h-auto py-2"
-                                                    name="number" id="number" placeholder="* Contact" required>
+                                                    placeholder="* Contact Number" required>
                                             </div>
                                         </div>
-                                        <div class="row mb-4">
+                                        <div class="row">
                                             <div class="form-group col">
-                                                <textarea maxlength="5000"
-                                                    data-msg-required="Please enter your message." rows="8"
+                                                <textarea name="message" id="message"
                                                     class="form-control text-3 custom-border-color-grey-1 h-auto py-2"
-                                                    name="message" id="message" placeholder="* Message"
-                                                    required></textarea>
+                                                    rows="8" placeholder="* Message" required></textarea>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="form-group col">
+                                                <div class="g-recaptcha"
+                                                    data-sitekey="6LczriwrAAAAACAfCVnrvmd7THAnho0pENH0SqA9"></div>
                                             </div>
                                         </div>
                                         <div class="row">
                                             <div class="form-group col">
                                                 <button type="submit"
-                                                    class="btn btn-primary custom-btn-style-1 font-weight-semibold btn-px-4 btn-py-2 text-3-5"
-                                                    data-loading-text="Loading..." data-cursor-effect-hover="plus"
-                                                    data-cursor-effect-hover-color="light">
+                                                    class="btn btn-primary custom-btn-style-1 font-weight-semibold btn-px-4 btn-py-2 text-3-5">
                                                     <span>Send Message</span>
                                                 </button>
                                             </div>
@@ -705,6 +700,51 @@
 
     <!-- Theme Initialization Files -->
     <script src="js/theme.init.js"></script>
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            var $form = $('#contactForm');
+            $form.on('submit', function (e) {
+                e.preventDefault();
+                var form = $(this);
+                var button = form.find('button[type="submit"]');
+                button.prop('disabled', true).text('Sending...');
+
+                $.ajax({
+                    url: form.attr('action'),
+                    type: form.attr('method'),
+                    data: form.serialize(),
+                    dataType: 'json',
+                    success: function (response) {
+                        if (response.success) {
+                            form[0].reset();
+                            $('.contact-form-success').removeClass('d-none');
+                            setTimeout(function () {
+                                $('.contact-form-success').addClass('d-none');
+                            }, 5000);
+                            if (typeof grecaptcha !== 'undefined') {
+                                grecaptcha.reset();
+                            }
+                        } else {
+                            $('.contact-form-error').removeClass('d-none').find('.mail-error-message').text(response.message);
+                            setTimeout(function () {
+                                $('.contact-form-error').addClass('d-none');
+                            }, 5000);
+                        }
+                        button.prop('disabled', false).text('Send Message');
+                    },
+                    error: function () {
+                        $('.contact-form-error').removeClass('d-none').find('.mail-error-message').text('An unexpected error occurred.');
+                        setTimeout(function () {
+                            $('.contact-form-error').addClass('d-none');
+                        }, 5000);
+                        button.prop('disabled', false).text('Send Message');
+                    }
+                });
+            });
+        });
+    </script>
 </body>
 
 </html>
