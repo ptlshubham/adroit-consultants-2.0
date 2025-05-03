@@ -17,14 +17,14 @@ error_log("Form Data: " . print_r($_POST, true));
 $mail = new PHPMailer(true);
 
 try {
-    // SMTP config
+    // SMTP config for Gmail
     $mail->isSMTP();
-    $mail->Host       = 'smtp.hostinger.com';
+    $mail->Host       = 'smtp.gmail.com';
     $mail->SMTPAuth   = true;
-    $mail->Username   = 'het@keryar.com';
-    $mail->Password   = 'Het@2210';
-    $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
-    $mail->Port       = 465;
+    $mail->Username   = 'adroitbizservices@gmail.com'; // Your Gmail address
+    $mail->Password   = 'ubob zwsr fktb pmjh'; // Your Gmail App Password
+    $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS; // Use STARTTLS
+    $mail->Port       = 587; // Port for STARTTLS
 
     // Form input
     $form_name = filter_var($_POST['name'], FILTER_SANITIZE_STRING);
@@ -69,10 +69,10 @@ try {
     mysqli_close($conn);
 
     // Send email
-    $mail->setFrom('het@keryar.com', 'Adroit Business Management');
+    $mail->setFrom('adroitbizservices@gmail.com', 'Adroit Business Management');
     $mail->addAddress($contact_email, $form_name);
-    $mail->addReplyTo('het@keryar.com', 'Adroit Business Management');
-    $mail->addAddress('het@keryar.com'); // Internal copy
+    $mail->addReplyTo('adroitbizservices@gmail.com', 'Adroit Business Management');
+    $mail->addAddress('adroitbizservices@gmail.com'); // Internal copy
 
     $mail->isHTML(true);
     $mail->Subject = 'Thank You for Contacting Adroit Business Management';
@@ -100,6 +100,7 @@ try {
 
 } catch (Exception $e) {
     error_log("Mail Error: " . $mail->ErrorInfo);
+    error_log("Exception: " . $e->getMessage());
     echo json_encode([
         'success' => false,
         'message' => 'Sorry, something went wrong. Please try again later.'
