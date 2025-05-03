@@ -90,7 +90,7 @@ $mail_body = '<!DOCTYPE html>
 <body>
     <div class="container">
         <div class="header">
-            <img src="https://adroitconsultants.in/img/logo.png" alt="Adroit Consultants" onerror="this.style.display=\'none\'">
+            <img src="https://adroitconsultants.in/img/logo.png" alt="Adroit Business Management" onerror="this.style.display=\'none\'">
         </div>
         <div class="content">
             <div class="greeting">Hello ' . $form_name . ',</div>
@@ -104,7 +104,7 @@ $mail_body = '<!DOCTYPE html>
             <a href="https://test.adroitconsultants.in/" class="btn">Visit Our Website</a>
         </div>
         <div class="footer">
-            <p>© ' . date('Y') . ' Adroit Consultants. All Rights Reserved.</p>
+            <p>© ' . date('Y') . ' Adroit Business Management. All Rights Reserved.</p>
             <p>Connecting Excellence with Opportunity</p>
         </div>
     </div>
