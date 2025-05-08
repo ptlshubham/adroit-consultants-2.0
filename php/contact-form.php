@@ -19,10 +19,10 @@ $mail = new PHPMailer(true);
 try {
     // SMTP config for Gmail
     $mail->isSMTP();
-    $mail->Host       = 'smtp.gmail.com';
+    $mail->Host       = 'smtp.hostinger.com';
     $mail->SMTPAuth   = true;
-    $mail->Username   = 'adroitbizservices@gmail.com'; // Your Gmail address
-    $mail->Password   = 'ubob zwsr fktb pmjh'; // Your Gmail App Password
+    $mail->Username   = 'info@adroitbiz.com'; // Your Gmail address
+    $mail->Password   = 'Adroit@biz1#'; // Your Gmail App Password
     $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS; // Use STARTTLS
     $mail->Port       = 587; // Port for STARTTLS
 
@@ -69,10 +69,10 @@ try {
     mysqli_close($conn);
 
     // Send email
-    $mail->setFrom('adroitbizservices@gmail.com', 'Adroit Business Management');
+    $mail->setFrom('info@adroitbiz.com', 'Adroit Business Management');
     $mail->addAddress($contact_email, $form_name);
-    $mail->addReplyTo('adroitbizservices@gmail.com', 'Adroit Business Management');
-    $mail->addAddress('adroitbizservices@gmail.com'); // Internal copy
+    $mail->addReplyTo('info@adroitbiz.com', 'Adroit Business Management');
+    $mail->addAddress('info@adroitbiz.com'); // Internal copy
 
     $mail->isHTML(true);
     $mail->Subject = 'Thank You for Contacting Adroit Business Management';
